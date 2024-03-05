@@ -1,4 +1,5 @@
 import express from 'express'
+// node --watch index.js comando experimental para desarrollo
 console.log('bienvenidos c74i')
 
 // 1- configurar un puerto
