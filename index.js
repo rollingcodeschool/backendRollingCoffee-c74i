@@ -5,6 +5,7 @@ import 'dotenv/config'; //permite procesar variables de entorno
 import path from 'path';
 import { fileURLToPath } from 'url';
 import productosRouter from './src/routes/productos.routes.js';
+import './src/database/database.js'
 
 // node --watch index.js comando experimental para desarrollo
 console.log('bienvenidos c74i')
