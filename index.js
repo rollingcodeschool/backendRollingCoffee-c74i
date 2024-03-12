@@ -33,5 +33,6 @@ app.use(express.static(path.join(__dirname,'/public')));
 //  console.log('hola mundo');
 //  res.send('desde el backend de rollingCoffee');
 // });
+// http://localhost:4001/api/productos
 app.use('/api', productosRouter)
 
