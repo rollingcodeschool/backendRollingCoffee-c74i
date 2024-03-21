@@ -15,11 +15,7 @@ export const listarProductos = async (req, res) => {
 
 export const crearProducto = async (req, res) => {
   try {
-    const errors = validationResult(req);
-    //preguntar si ocurrieron errores errors.isEmpty()
-    if(!errors.isEmpty()){
-      return res.status(400).json({errores: errors.array() })
-    }
+  
 
     const productoNuevo = new Producto(req.body);
     //pedirle a la BD guardar el producto nuevo
