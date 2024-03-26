@@ -5,6 +5,7 @@ import 'dotenv/config'; //permite procesar variables de entorno
 import path from 'path';
 import { fileURLToPath } from 'url';
 import productosRouter from './src/routes/productos.routes.js';
+import usuarioRouter from './src/routes/usuarios.routes.js';
 import './src/database/database.js'
 
 // node --watch index.js comando experimental para desarrollo
@@ -34,4 +35,5 @@ app.use(express.static(path.join(__dirname,'/public')));
 // });
 // http://localhost:4001/api/productos
 app.use('/api', productosRouter)
+app.use('/api/usuario', usuarioRouter)
 

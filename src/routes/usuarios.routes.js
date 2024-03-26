@@ -3,6 +3,6 @@ import { crearUsuario, obtenerUsuarios } from "../controllers/usuarios.controlle
 
 const router = Router();
 
-router.route("/usuarios").post(crearUsuario).get(obtenerUsuarios);
-
+router.route("/nuevo").post(crearUsuario);
+router.route('/').get(obtenerUsuarios)
 export default router;
