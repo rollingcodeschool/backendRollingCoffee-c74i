@@ -25,6 +25,31 @@ export const crearUsuario = async (req, res) => {
     });
   }
 };
+export const login = async (req, res) => {
+  try {
+    const {email, password} = req.body;
+    //verificar si el email ya esta guardado
+    const usuarioBuscado = await Usuario.findOne({email});
+    if(!usuarioBuscado){
+      //si no existe un usuario con el mail
+      return res.status(400).json({mensaje: 'Email o password incorrecto - email'})
+    }
+    const passwordValido = bcrypt.compareSync(password, usuarioBuscado.password )
+    if(!passwordValido){
+      return res.status(400).json({mensaje: 'Email o password incorrecto - password'})
+    }
+
+    res.status(200).json({
+      message: "El usuario existe",
+      email : usuarioBuscado.email 
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      message: "Ocurrio un error durante el login",
+    });
+  }
+};
 
 export const obtenerUsuarios = async (req, res) => {
   try {
