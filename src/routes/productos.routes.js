@@ -8,17 +8,18 @@ import {
 } from "../controllers/productos.controllers.js";
 import { check } from "express-validator";
 import validacionProducto from "../helpers/validacionProducto.js";
+import validarJWT from "../helpers/validarJWT.js";
 
 const router = Router();
 
 router
   .route("/productos")
   .get(listarProductos)
-  .post([validacionProducto],crearProducto);
+  .post([validarJWT, validacionProducto],crearProducto);
 router
   .route("/productos/:id")
   .get(obtenerProducto)
-  .put([validacionProducto],editarProducto)
-  .delete(borrarProducto);
+  .put([validarJWT, validacionProducto],editarProducto)
+  .delete([validarJWT], borrarProducto);
 
 export default router;
